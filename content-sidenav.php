@@ -14,13 +14,9 @@
             <i class="fa fa-users"></i>
             <label>Mi red</label>
         </a></li>
-        <li><a href="<?php echo esc_url( home_url( '/comisiones/' ) ); ?>">
-            <i class="fa fa-money"></i>
-            <label>Comisiones</label>
-        </a></li>
-        <li><a href="<?php echo esc_url( home_url( '/capacitacion/' ) ); ?>">
+<!--         <li><a href="<?php echo esc_url( home_url( '/capacitacion/' ) ); ?>">
             <i class="fa fa-book"></i>
             <label>Capacitación</label>
-        </a></li>
+        </a></li> -->
     </ul>
 </nav>

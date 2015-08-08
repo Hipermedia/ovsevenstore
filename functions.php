@@ -660,8 +660,8 @@ function datosApi() {
 	$userData['supremo']		= $userMeta['supremoApi'][0];
 	$userData['master']			= $userMeta['masterApi'][0];
 	//Comisiones
-	$userData['cbasico']		= $userMeta['gananciaBasicoApi'][0];
-	$userData['cpremier']		= $userMeta['gananciaPremierApi'][0];
+	$userData['cbasico']        = $userMeta[' gananciaBasicoApi'][0];
+    $userData['cpremier']        = $userMeta[' gananciaPremierApi'][0]; 
 	$userData['cplus']			= $userMeta['gananciaPlusApi'][0];
 	$userData['cultra']			= $userMeta['gananciaUltraApi'][0];
 	$userData['csupremo']		= $userMeta['gananciaSupremoApi'][0];

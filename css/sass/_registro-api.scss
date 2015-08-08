@@ -1,3 +1,354 @@
 /*------------------------------------------------*/
 /*----------------[ REGISTRO API ]----------------*/
 /*------------------------------------------------*/
+.registro-api {
+	padding-bottom: 3rem;
+}
+
+.content,
+.content-medium, 
+.content-small {
+	
+	/* Mensajes de actualización ACF*/
+	div.updated { 
+		background: none;
+	}
+
+	.inside {
+		padding: 0;
+		@include rounded;
+		display: inline-block;
+		width: 100%;
+
+		.acf-tab-wrap {
+			display: none;
+		}
+		
+
+
+
+		.field {
+			position: relative;
+			color: #fff !important;
+			width: 21%;
+			margin: 0 2% 0;
+			float: left;
+
+			@media (max-width: 1200px) {
+				width: 46%;
+			}
+
+			@media (max-width: 768px) {
+				width: 96%;
+			}
+			
+			p.label {
+				text-shadow: none !important;
+				color: #fff !important;
+				border: none !important;
+				text-transform: none;
+
+				label {
+					color: #fff;
+				}				
+			}
+
+			select {
+				font-size: inherit;
+				padding: 0;
+			}
+
+			input[type="submit"],
+			input[type="button"] {
+				float: left;
+				padding: 6px 20px;
+				margin-right: 60%;
+				width: 100%;
+				color: #fff;
+				background: none !important;
+				box-shadow: none !important;
+				border-radius: 1rem !important; 
+				border: 1px #fff solid !important;
+			}
+
+			input[type="submit"]:hover,
+			input[type="button"]:hover {
+				color: #fff;
+			}
+
+			.radio input[type="radio"], 
+			.radio-inline input[type="radio"], 
+			.checkbox input[type="checkbox"], 
+			.checkbox-inline input[type="checkbox"] {
+				height: 16px !important;
+				width: 16px !important;
+			}
+
+			textarea {
+				min-height: auto;
+			}
+
+
+			td {
+				width: 200px !important;
+			}
+
+		}
+		/* Corrige el collapso de los campos de texto del repeater field*/
+		div.repeater .field_type-text {
+			width: 100% !important;
+			float: none !important;
+
+			td { 
+				width: 80% !important;
+				float: left; 
+				padding: 5px 10px;
+			}
+			td.label {
+				width: 20% !important;
+				float: left;
+				padding: 10px;
+			}
+		}
+		div.repeater .acf_input-wrap {
+			width: 100% !important;
+			float: none !important;
+
+			td { 
+				width: 80% !important; 
+				float: left;
+				padding: 5px 10px;
+			}
+			td.label {
+				width: 20% !important;
+				float: left;
+				padding: 10px;
+			}
+		}
+		div.repeater .field_type-checkbox {
+			width: 100% !important;
+			float: none !important;
+
+			td { 
+				width: 80% !important; 
+				float: left;
+				padding: 5px 10px;
+
+				li {
+					float: left;
+					padding: 8px;
+				}
+			}
+			td.label {
+				width: 20% !important;
+				float: left;
+				padding: 14px 10px;
+			}
+
+
+		}
+		div.repeater .field_type-textarea {
+			width: 100% !important;
+			float: none !important;
+
+			td { 
+				width: 80% !important;
+				float: left; 
+				padding: 5px 10px;
+			}
+			td.label {
+				width: 20% !important;
+				float: left;
+				padding: 48px 10px;
+			}
+		}
+		div.repeater .field_type-number {
+			width: 100% !important;
+			float: none !important;
+
+			td { 
+				width: 20% !important;
+				float: left; 
+				padding: 5px 10px;
+			}
+			td.label {
+				width: 20% !important;
+				float: left;
+				padding: 10px;
+			}
+		}
+		
+
+		#acf-p_foto,
+    	#acf-p_fc {
+			width: 96%;
+			margin: 0 2%;
+		}
+
+		.acf-tab-group li.active a {
+    		background: #F5F5F5;
+    	}
+
+    	#acf-p_funcion_grado {
+    		width: 46%;
+			margin: 0 2%;
+
+			@media (max-width: 768px) {
+				width: 96%;
+			}
+
+			li {
+				float: left;
+				padding: 0 0.6em;
+				line-height: 1em;
+				margin: 0;
+			}
+    	}
+
+    	#acf-p_licenciatura, 
+    	#acf-p_ct_gra_1,
+    	#acf-p_ct_nserie_ipads {
+    		clear: left;
+    	}
+
+
+	}
+
+	.field {
+		position: relative;
+		color: #fff;
+		width: 21%;
+		margin: 0 2%;
+		float: left;
+		
+		.label {
+			text-align: left;
+		}
+
+		input[type="submit"],
+		input[type="button"] {
+			float: left;
+			padding: 6px 20px;
+			margin-right: 60%;
+			width: 100%;
+			color: #fff;
+			background: none !important;
+			box-shadow: none !important;
+			border-radius: 1rem !important; 
+			border: 1px #fff solid !important;
+			margin-top: -20px;
+		}
+
+		input[type="submit"]:hover,
+		input[type="button"]:hover {
+			color: #fff;
+			margin-top: -20px;
+			font-weight: bold;
+		}
+
+		.acf_postbox .field textarea {
+		    resize: vertical;
+		    max-height: 120px;
+		}		
+
+	}
+		
+	.acf_postbox .field.error {
+		border: 1px solid #C00 !important;
+		background: none !important;
+	}
+
+	/* CLASES AUXILIARES */
+	.cols2 {
+		width: 46% !important;
+		@media (max-width: 1200px) {	width: 96% !important; }
+	}
+	.cols3 {
+		width: 71% !important;
+		@media (max-width: 1200px) {	width: 96% !important; }
+	}
+	.cols4 {
+		width: 96% !important;		
+		@media (max-width: 1200px) {	width: 96% !important; }
+	}
+	.nothere {
+		display: none;
+	}
+
+	.prop {
+
+		p.label {
+			float: left;
+			margin: 0px 2% 0px 0px;
+			height: 30px;
+			text-align: center !important;
+			font-weight: bold;
+			text-shadow: none;
+			color: rgb(255, 255, 255);
+			width: 5%;
+			background: #ccc;
+
+			label {
+				color: #fff;
+				font-size: 1.2em;
+				vertical-align: middle;
+			}
+		}
+	}
+	.prop1 p.label { background-color: #2196F3; }
+	.prop2 p.label { background-color: #8BC34A; }
+	.prop3 p.label { background-color: #FFC107; }
+	.prop4 p.label { background-color: #FF5722; }
+	.prop5 p.label { background-color: #E040FB; }
+	.prop6 p.label { background-color: #F44336; }
+
+	.field_type-message {
+	    width: 100% !important;
+	    padding: 0px !important;
+	    margin: 0px 2em !important;
+	    text-transform: uppercase;
+	    font-size: 1.25rem !important;
+	    height: auto;
+		font-weight: bold;
+		
+		h2 {
+	    	color: $rojo !important;
+	    }
+	}
+
+	.alert {
+
+		h4 {
+			float: left;
+			clear: none;
+			font-size: 1.2em;
+			margin: 0;
+		}
+		p{
+			clear: both;
+			width: 100%;
+		}
+	}
+}
+
+.field_type-message p.label {
+    display: block !important;
+}
+
+.notice, div.error, div.updated {
+	background: rgba(0, 0, 0, .45) !important;
+	color: #fff;
+}
+
+
+/* AJUSTE AL CHECKBOX DE CONFIRMACIÓN  */
+#acf-registradoApi p label {
+	display: none;
+}
+#acf-field-registradoApi-1 {
+	opacity: 0;
+}
+#acf-registradoApi {
+	width: 100%;
+}
+

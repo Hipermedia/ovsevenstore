@@ -5,7 +5,7 @@
 
 /* Resumen de artículos */
 .articulos {
-	padding: 0px 3%;
+	padding: 0px 1.5rem;
 	width: 100%;
 	float: left;
 	clear: none;
@@ -15,33 +15,31 @@
 		width: 94%;
 		margin: 3%;
 	}
+	.articulo { 
+		margin-bottom: 1.5rem;
 
-	.title {
-		line-height: 1em;
-	}
-	.entry-autor {
-		font-size: .75em;
-		font-weight: normal;
-		color: #9d9d9d;
-		font-family: sans-serif;
-		margin-bottom: .3em;
-	}
-	.entry-summary {
-		height: 15.625em;
-		overflow:hidden;
-		font-size: .85em;
-		line-height: 1.4em;
-		height: 18em;
-	}
-	.entry-summary p {
-		margin-bottom: .5em;
-	}
+		.titulo a {
+			line-height: 1em;
+			color: $azure;
+			font-family: $light-font;
+			border-bottom: 1px solid #333;
+			width: 100%;
+			display: block;
+		}
+		.titulo a:hover {
+			color: $amarillo;
+		}
+		.meta {
+			font-size: .9rem;
+			line-height: 1;
+			margin: 0 0 1rem;
+			padding: 0;
+			color: #888; 
+		}
+		.thumb {
+			display: none;
+		}
 
-	.entry-thumbnail,
-	.entry-thumbnail img {
-		float: none;
-		width:100%;	
 	}
-
 }
 

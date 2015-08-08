@@ -27,7 +27,7 @@ $api = datosApi();
 	<!-- Artículos en portada -->
     <?php 
         $catid = get_ot('categoria_portada', ''); 
-        $post_per_page = 2; 
+        $post_per_page = 8; 
         //Consulta
         $args = array( 
             'cat' => $catid, 
