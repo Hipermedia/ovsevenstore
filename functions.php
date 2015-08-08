@@ -51,9 +51,25 @@ function plantilla_url() {
 function get_plantilla_url() {
 	return get_bloginfo( 'template_url' );
 }
+
+
+/** 
+* PARTS
+* -----------------------------------------*/
+/** Compartir en redes sociales  */
+function redBloque() {
+	get_template_part( 'inc/parts/red-bloque' );
+}
+
+/** Compartir en redes sociales  */
 function the_social_share() {
 	get_template_part( 'socialshare');
 }
+
+
+
+
+
 function the_custom_meta() {
   print 'Publicado por <strong>' . get_the_author() .'</strong>'
   		. ' el ' . get_the_time('j \d\e\ F \d\e\ Y') 

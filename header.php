@@ -69,13 +69,15 @@
                 <img src="<?php print_ot('logo', get_plantilla_url().'/images/logo.png'); ?>" alt="<?php bloginfo('name'); ?>">
             </a>           
                       
-            <!-- Menú principal -->        
-            <nav id="header-main-nav" class="main-nav" role="navigation">
-                <!-- Icono de menú para versión adaptativa -->
-                <a class="toggle-nav" href="#">MENU DE NAVEGACIÓN</a>
-                <!-- Menu WordPress -->
-                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'activo', 'menu_id' => 'header-menu') ); ?>
-            </nav>
+             <!-- Menú principal -->
+            <?php if ( !is_user_logged_in() ) : ?>        
+                <nav id="header-main-nav" class="main-nav" role="navigation">
+                    <!-- Icono de menú para versión adaptativa -->
+                    <a class="toggle-nav" href="#">MENU DE NAVEGACIÓN</a>
+                    <!-- Menu WordPress -->
+                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'activo', 'menu_id' => 'header-menu') ); ?>
+                </nav>
+            <?php endif; ?>
 
     </header>
 </div>
