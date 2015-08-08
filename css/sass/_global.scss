@@ -1,0 +1,171 @@
+/*------------------------------------------------*/
+/*-----------------[GLOBAL STYLES]---------------*/
+/*------------------------------------------------*/
+
+/* =Global
+----------------------------------------------- */
+ * { 
+ 	box-sizing: Border-box 
+ }
+
+html {
+	font-size: 16px; /* 16px */
+}
+body {
+	color: $text-color;
+	font-family: $global-font;
+	line-height: 1.5em; /* 24px */
+	background: $body-bg;
+	margin: 0;
+}
+.content-wrapper {
+	background-image:url("images/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	margin: 0 auto;
+	min-height: 99.8vh;
+	display: block;
+	overflow: hidden; 
+	
+	@media (max-width: $desktop-width) {
+		padding-top: 0;
+	}
+}
+/* Links */
+a {
+	color: $link-color;
+	text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+	color: $link-hover-color;	
+	text-decoration: none;
+}
+
+/* = Utilidades
+----------------------------------------------- */
+.admin-bar .navbar-fixed-top {
+	margin-top: 32px;
+}
+.u-center-box {
+	margin-left: auto;
+	margin-right: auto;
+}
+.u-remove {
+	display: none;
+}
+
+/* = Contenido
+----------------------------------------------- */
+.content {
+	width: 80%;	
+	margin: 10% 9% 0 11%;
+}
+.content-medium {
+	width: 40%;	
+	margin: 12% 29% 0 31%;
+	background: rgba(0,0,0,.75);
+	@include rounded(1rem);
+}
+.content-small {
+	width: 20%;	
+	margin: 12% 39% 0 41%;
+	background: rgba(0,0,0,.75);
+	@include rounded(1rem);
+}
+.content,
+.content-medium, 
+.content-small {
+	color: #fff;
+	padding: 1.25rem;
+	background: rgba(0,0,0,.75);
+	@include rounded(1rem);	
+		
+	blockquote {
+		font-family: Georgia, serif !important;
+		font-size: 1.8rem;
+		font-style: italic;
+		color: #929292;
+
+		p {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	blockquote:before {
+		content: "\2018\2018";
+		font-size: 5rem;
+		float: left;
+		padding-right: 1rem;
+		line-height: 0.8;
+		overflow: hidden;
+		height: 3rem;
+	}
+	
+
+	/* FORMULARIOS */
+	label {
+		font-weight: normal !important;
+	}
+	input[type="text"],
+	input[type="password"] {
+		width: 100% !important;
+		@include rounded();
+		margin-bottom: 1rem;
+		padding: .25rem 1rem;
+	}
+	.checkbox,
+	.checkbox.checked .second-icon  {
+		color: #fff;
+		padding-left: 24px;
+		margin-left: .75rem;
+	}
+    
+	input[type="submit"] {
+		color: #fff;
+		border-color: #fff;
+		padding: .5rem 1.5rem .75rem;
+		border: none;
+		font-size: 1rem;
+		
+		&:hover {
+			border: 1px solid #fff;
+			margin-top: -2px;
+	  	}	
+    }   	
+}
+
+.gallery {
+
+	img {
+		width: 100%;
+	}
+}
+
+
+
+
+/* PAGINACIÓN */
+#numbered-pagination {
+	display: block;
+	clear: both;
+	padding: 1em 0; /* 16px */
+}
+.page-numbers {
+	background-color: #e5e5e5;
+	padding: .8em 1.2em;
+	border: #E3E3E3 solid 1px;
+	color: #7D7D7D;
+	float: left;
+	margin: 0 .2em .2em 0;
+	
+}
+span.current, .page-numbers:hover {
+	background-color: #848484; /* Old browsers */	
+	border: #B5B5B5 solid 1px;
+	color: #fff !important;
+	font-weight: bold;
+}
+

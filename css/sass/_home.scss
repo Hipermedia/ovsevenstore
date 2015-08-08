@@ -1,0 +1,61 @@
+/*------------------------------------------------*/
+/*----------------[LOGIN / HOME]------------------*/
+/*------------------------------------------------*/
+
+/* HOME - LOGIN */
+.login-home {
+	
+
+	h2 {
+		border-bottom: 1px solid #222;
+		color: $amarillo;
+		font-family: $light-font;
+		font-size: 2.5rem;
+	}
+
+    #loginform-home {
+    	display: inline-block;
+		padding: 0 0 .5rem;
+   	
+	    .login-password,
+	   	.login-username,
+	   	.login-remember,
+	   	.login-submit {
+	        color: #fff !important;  			
+	   		width: 46% !important;
+			float: left !important;
+			margin: 0 2% !important;
+		
+			@media (max-width: 768px) {
+				width: 100% !important;
+				margin: 1.5rem auto !important;
+				float: none !important;
+			}
+   		}
+
+   		.login-remember {
+   			margin-left: 1.5rem;
+   		}
+  	}
+
+	h4 {
+		width: 100%;
+		clear: both;
+		text-align: right;
+		font-size: .9rem;
+		margin: .35rem 0;
+	  	
+		a { color: $verde; }
+		a:hover { color: $amarillo; }
+	  	
+	  	strong{
+	  		font-size: 1.1rem;
+	  		font-weight: normal;
+	  	}
+	  	
+	  	&.recuperar-password {
+	  		
+	  		a { color: #bbb; }
+	  	}
+	}
+}

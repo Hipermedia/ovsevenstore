@@ -1,0 +1,62 @@
+/*------------------------------------------------*/
+/*-----------------[SIDENAV]-----------------------*/
+/*------------------------------------------------*/
+.sidenav {
+	background: $bg-sidenav;
+	padding-top: 80px;
+	width: 60px;
+	height: 99.8vh;
+	display: block;
+	position: fixed;
+
+	ul {
+		@include ul-base;
+
+		li {
+			padding: .5rem 0;
+			border-bottom: 1px #222 solid;
+			
+			a {
+				font-size: 2.25rem;
+				line-height: 3.25rem;
+				height: 3.25rem;
+				width: 3.25rem;
+				display: block;
+				margin: 0 auto;
+				color: #444;
+				text-align: center;	
+				border: none;
+				position: relative;
+				@include rounded;
+				@include transicion;
+
+				&:hover {
+					color: #fff;
+					border: #fff 1px solid;
+
+					label {
+						display: block;
+						left: 55px;
+						top: 0;
+					}
+				}
+
+				label {
+					content: '';
+					position: absolute;
+					font-size: 1.1rem;
+					padding: 0 1rem 0 0.5rem;
+					background: rgba(0, 0, 0, .65);
+					-webkit-border-radius: 0 .5rem .5rem 0;
+				    -moz-border-radius: 0 .5rem .5rem 0;
+				    border-radius: 0 .5rem .5rem 0;
+					display: none;
+					font-weight: normal;
+					width: 120px;
+					text-align: center;
+					overflow: hidden;
+				}		
+			}
+		}
+	}
+}
