@@ -1,0 +1,23 @@
+//
+					<?php $nivel = 0; // inicio contador de niveles en 0 ?>
+					<h2><?php echo count($red['hijos_basico']);  ?></h2>
+					<?php foreach ($red['hijos_basico'] as $hijoNivel1 ) { // Recorro el array del nivel que corresponde ?>
+							
+						<div class="nivel"><?= $nivel; ?> - <?= $hijoNivel1['nombre']; ?>
+
+							<?php if (!empty($hijoNivel1['hijos_basico'])) : ?> 
+
+								<?php foreach ($hijoNivel1['hijos_basico'] as $hijoNivel2 ) { // Recorro el array del nivel que corresponde ?>
+
+										<div class="nivel"> -- <?= $hijoNivel2['nombre']; ?>
+											<?php var_dump($hijoNivel2['hijos_basico']); ?>
+										</div>	
+										 
+								<?php 	} ?>
+
+							<?php endif; ?>
+
+						</div>					
+
+						<?php $nivel++; ?>
+    				<?php } ?>	

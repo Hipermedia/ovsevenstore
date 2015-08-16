@@ -4,11 +4,12 @@
  */
 ?>
 
-<div id="1" class="Red-bloque">
+<div id="<?= $hijo['ID']; ?>" class="Red-bloque">
+	<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
 	<span class="Red-bloqueImagen">
 		<i class="fa fa-user"></i>
 	</span>
-	<span class="Red-bloqueNombre">Alejandro Godinez Pérez</span>
+	<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?>x</span>
 	<span class="Red-bloqueStatus">Activo</span>
-	<span class="Red-bloqueNivel">Nivel 1</span>
+	<span class="Red-bloqueNivel"><?php $nivel; ?></span>
 </div>

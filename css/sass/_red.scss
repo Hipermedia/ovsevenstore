@@ -1,3 +1,118 @@
 /*------------------------------------------------*/
 /*--------------------[ RED ]---------------------*/
 /*------------------------------------------------*/
+.Red {
+	
+	.Red-tabHeader {
+
+		a {
+			font-size: 1.25rem;
+			font-weight: 300;
+			background: none;
+			color: #eee;
+		}
+
+		a:hover {
+			background: none;
+		}
+
+		.active a {
+			background: none;
+			color: #63FC4B;
+		}
+	}
+	.Red-tabBody {
+		padding: 3rem 1.5rem;
+		
+		.Red-planActivacion,
+		.Red-planComisiones {
+			display: inline-block;
+			width: 49%;
+			padding: 0;
+			margin: 0 0 3rem;
+			font-size: 1.25rem;
+			font-weight: 300;
+			color: #ccc;
+			
+			i {
+			 	color: #FFF209;
+			 	padding-right: .5rem;
+			 	font-size: 1.5rem;
+			}
+			span {
+				font-weight: 400; 
+				font-size: 1.35rem;
+				color: #fff;
+			}
+
+		}
+	
+
+		.Red-tabBodyPanel {
+
+			.Red-planArbol {
+
+				ul {
+					list-style-type: none;
+				}
+				
+				.nivel {
+					padding: 0 0 0 3rem;
+				}
+			}
+		}
+	}
+
+}
+
+.Red-bloque {
+	border: 1px solid #fff;
+	width: 36rem;
+	@include rounded();
+	margin: 0 0 1rem;
+	padding: .5rem .5rem 0;
+	line-height: 3rem;
+	position: relative;
+
+	.Red-bloqueIcon {
+		@include rounded(50%);
+		background: #444;
+		width: 1.5rem;
+		height: 1.5rem;
+		line-height: 1.5rem;
+		text-align: center;
+		display: inline-block;
+		font-size: 1rem;
+		position: absolute;
+		top: 1.5rem;
+		left: -2.5rem;
+		cursor: pointer;
+		color: #fff;
+	}
+	.Red-bloqueImagen {
+		@include rounded(50%);
+		background: #59CC45;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		text-align: center;
+		display: inline-block;
+		font-size: 2rem;
+		margin: 0 1rem 0 0;		
+	}
+	.Red-bloqueNombre {
+		font-size: 1.25rem;
+		line-height: 3rem;		
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.Red-bloqueStatus {
+		float: right;
+		padding: 0 0 0 1rem;
+	}
+	.Red-bloqueNivel {
+		float: right;
+		padding: 0 .5rem 0 1rem;
+	}
+}

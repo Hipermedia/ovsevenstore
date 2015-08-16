@@ -5,6 +5,8 @@
  * Funciones personalizadas de Soluciones Hipermedia
  */
 
+require_once('more_functions.php'); 
+
 
 /* Oculta la barra de administrador si no es usuario 
  * ------------------------------------------------------------- */
