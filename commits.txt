@@ -1,0 +1,29 @@
+commit 125b014dbf4eaf790866517410e678a5fd8dedf4
+Author: Alejandro Sobrevilla Viveros <hunabix@gmail.com>
+Date:   Mon Aug 17 07:37:43 2015 -0500
+
+    Agrego red de registrados
+
+commit 7c6f08a30855145dcae851f82da79f468f99e296
+Author: Alejandro Sobrevilla Viveros <hunabix@gmail.com>
+Date:   Sun Aug 16 12:28:00 2015 -0500
+
+    Red base, antes de correcciones
+
+commit 8150890643e50d7de563acb6da78eb4c8e973783
+Author: Alejandro Sobrevilla Viveros <hunabix@gmail.com>
+Date:   Sat Aug 8 14:36:58 2015 -0500
+
+    arbol de bloques de red
+
+commit 7a426a899fddcad1e3906086278dca52c1b09b5b
+Author: Alejandro Sobrevilla Viveros <hunabix@gmail.com>
+Date:   Sat Aug 8 11:49:18 2015 -0500
+
+    ajustes varios
+
+commit a3e96db10547f0978b12ae87e853e005bd73680c
+Author: Alejandro Sobrevilla Viveros <hunabix@gmail.com>
+Date:   Sat Aug 8 10:14:55 2015 -0500
+
+    Archivos base oficina virtual
