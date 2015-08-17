@@ -19,7 +19,22 @@ function remueveBarraAdmin()
 }
 add_action('after_setup_theme', 'remueveBarraAdmin');
 
- 
+
+function bloqueRed($id, $usuario, $nombre, $nivel) {
+?>
+
+<li id="<?php echo $id ?>" class="Red-bloque">
+	<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
+	<span class="Red-bloqueImagen">
+		<i class="fa fa-user"></i>
+	</span>
+	<span class="Red-bloqueNombre"><?php echo $nombre; ?></span>
+	<span class="Red-bloqueUsuario"><?php echo $usuario; ?></span>
+	<span class="Red-bloqueNivel">Nivel <?php echo $nivel; ?></span>
+</li>
+<?php
+}
+
 
 /** Imprime una variable de OT; valida que exista la función y permite 
  * imprimir un valor por defecto si el campo está vacio  
@@ -53,7 +68,6 @@ function plantilla_url() {
 function get_plantilla_url() {
 	return get_bloginfo( 'template_url' );
 }
-
 
 /** 
 * PARTS

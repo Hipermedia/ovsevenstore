@@ -67,7 +67,7 @@
 
 .Red-bloque {
 	border: 1px solid #fff;
-	width: 36rem;
+	width: 40rem;
 	@include rounded();
 	margin: 0 0 1rem;
 	padding: .5rem .5rem 0;
@@ -99,6 +99,12 @@
 		display: inline-block;
 		font-size: 2rem;
 		margin: 0 1rem 0 0;		
+	}
+	.Red-bloqueUsuario {
+		font-size: 1rem;
+		font-weight: 300;
+		padding-left: 1rem;
+		color: #FFF209;
 	}
 	.Red-bloqueNombre {
 		font-size: 1.25rem;

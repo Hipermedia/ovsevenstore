@@ -2,10 +2,6 @@
 
 /* EXTRA FUNCTIONS */
 
-function echo_test() {
-	inicio_url();
-}
-
 function comisiones() {
 	$userID	= get_current_user_id();
 	$userMeta	= get_user_meta( $userID );
@@ -49,6 +45,7 @@ function redApi( $rID = FALSE, $generacion = 0, $tipo_hijos = FALSE, $cached_que
 		$count_ultra	= 0;
 		$count_supremo	= 0;
 		$count_master	= 0;
+		$count_registrados	= 0;
 	}
 	
 	$count_i		= 0;
@@ -74,6 +71,7 @@ function redApi( $rID = FALSE, $generacion = 0, $tipo_hijos = FALSE, $cached_que
 		$result['supremo'] 	= $cUserMeta['supremoApi'][0];
 		$result['master'] 	= $cUserMeta['masterApi'][0];
 
+		$result['hijos_registrados'] = array();
 		$result['hijos_basico'] = array();
 		$result['hijos_premier'] = array();
 		$result['hijos_plus'] = array();
@@ -96,6 +94,18 @@ function redApi( $rID = FALSE, $generacion = 0, $tipo_hijos = FALSE, $cached_que
 		
 		if ( ($user_meta['uplineApi'][0] == $cUserInfo->data->user_login) AND ($generacion === 0) ) {
 
+			//	Query users with no plan
+			if ( !$user_meta['basicoApi'][0] && !$user_meta['premierApi'][0] && !$user_meta['plusApi'][0] && !$user_meta['ultraApi'][0] && !$user_meta['supremoApi'][0] && !$user_meta['masterApi'][0] ) {
+
+				$result['hijos_registrados'][$count_registrados]['ID']			= $value->ID;
+				$result['hijos_registrados'][$count_registrados]['numero']		= $value->user_login;
+				$result['hijos_registrados'][$count_registrados]['nombre']		= $user_meta['first_name'][0] . ' ' . $user_meta['last_name'][0];
+				$result['hijos_registrados'][$count_registrados]['hijos_registrados']	= redApi($value->ID, $generacion+1, 'registrados', $cached_query);
+				$count_registrados++;
+
+			}
+
+			//Query children by plan
 			if ($user_meta['basicoApi'][0]) {
 
 				$result['hijos_basico'][$count_basico]['ID']			= $value->ID;
@@ -162,24 +172,40 @@ function redApi( $rID = FALSE, $generacion = 0, $tipo_hijos = FALSE, $cached_que
 				$count_master++;
 
 			}
+
+
 		
 		}
 
 		if ( ($user_meta['uplineApi'][0] == $cUserInfo->data->user_login) AND ($generacion > 0) ) {
 
 				$result[$count_i]['ID']			= $value->ID;
+
 				$result[$count_i]['numero']		= $value->user_login;
+
 				$result[$count_i]['nombre']		= $user_meta['first_name'][0] . ' ' . $user_meta['last_name'][0];
-				$result[$count_i][$tipo_hijos]	= $cUserMeta[$tipo_hijos.'Api'][0];
-				if ($generacion <= 5) {
-					$result[$count_i]['hijos_'.$tipo_hijos]	= redApi($value->ID, $generacion+1, $tipo_hijos, $cached_query);
+				
+				if ( isset($cUserMeta[$tipo_hijos.'Api'][0]) ) {
+				
+					$result[$count_i][$tipo_hijos]	= $cUserMeta[$tipo_hijos.'Api'][0];
+				
 				}
+				
+				if ($generacion <= 5) {
+				
+					$result[$count_i]['hijos_'.$tipo_hijos]	= redApi($value->ID, $generacion+1, $tipo_hijos, $cached_query);
+				
+				}
+				
 				$result[$count_i][$tipo_hijos]		= $result[$count_i]['hijos_'.$tipo_hijos] ? TRUE : FALSE;
+
 				$count_i++;
 		
 		}
 
 	}
-	
+
+	if ($generacion == 0)
+	//print_array($result);
 	return $result;
 }

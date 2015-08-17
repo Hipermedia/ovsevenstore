@@ -24,6 +24,7 @@ get_header(); ?>
 		<p></p>
 		<!-- TABS Header -->
 		<ul class="nav nav-tabs Red-tabHeader" role="tablist">
+		    <li role="presentation"><a href="#registrado" aria-controls="registrado" role="tab" data-toggle="tab">Registrados</a></li>
 		    <li role="presentation" class="active"><a href="#basico" aria-controls="basico" role="tab" data-toggle="tab">Básico</a></li>
 		    <li role="presentation"><a href="#premier" aria-controls="premier" role="tab" data-toggle="tab">Premier</a></li>
 		    <li role="presentation"><a href="#plus" aria-controls="plus" role="tab" data-toggle="tab">Plus</a></li>
@@ -35,6 +36,48 @@ get_header(); ?>
 		<!-- TABS Body -->
 		<div class="tab-content Red-tabBody">
 			
+			<!-- REGISTRADOS
+			******************************************* -->
+			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="registrado">
+				
+				
+				<?php $redPlan = 'hijos_registrados'; ?>
+				<?php if ($red[$redPlan]) : ?>
+					<!-- Arbol de red -->
+					<div class="Red-planArbol">
+						<!-- Nivel 1 -->
+						<?php foreach ($red[$redPlan] as $hijoNivel1 ) { ?>							
+							<ul class="nivel nivel-1">
+								<?php $hijo = $hijoNivel1; $nivel = 1; ?>
+								<!-- bloque de red -->
+								<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
+								<!-- nivel 2 -->	
+								<?php if (!empty($hijoNivel1[$redPlan])) : ?>
+									<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
+										<ul class="nivel nivel-2">
+											<?php $hijo = $hijoNivel2; $nivel = 2;?>
+											<!-- bloque de red -->
+											<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
+											<!-- Nivel 3 -->
+											<?php if (!empty($hijoNivel2[$redPlan])) : ?>
+												<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
+													<ul class="nivel nivel-3"> 
+														<?php $hijo = $hijoNivel3; $nivel = 3;?>
+														<!-- bloque de red -->
+														<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>														
+													</ul>											 
+												<?php 	} ?>
+											<?php endif; ?>
+										</ul>											 
+									<?php 	} ?>
+								<?php endif; ?>
+							</ul>
+	    				<?php } ?>	
+					</div>	
+				<?php endif; ?>
+
+			</div>
+
 			<!-- BASICO
 			******************************************* -->
 			<div role="tabpanel" class="tab-pane active Red-tabBodyPanel" id="basico">
@@ -60,117 +103,21 @@ get_header(); ?>
 							<ul class="nivel nivel-1">
 								<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 								<!-- bloque de red -->
-								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-									<span class="Red-bloqueImagen">
-										<i class="fa fa-user"></i>
-									</span>
-									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-									<span class="Red-bloqueStatus">Activo</span>
-									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-								</li>
+								<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 								<!-- nivel 2 -->	
 								<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 									<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 										<ul class="nivel nivel-2">
 											<?php $hijo = $hijoNivel2; $nivel = 2;?>
 											<!-- bloque de red -->
-											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-												<span class="Red-bloqueImagen">
-													<i class="fa fa-user"></i>
-												</span>
-												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-												<span class="Red-bloqueStatus">Activo</span>
-												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-											</li>		
+											<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 											<!-- Nivel 3 -->
 											<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 												<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 													<ul class="nivel nivel-3"> 
 														<?php $hijo = $hijoNivel3; $nivel = 3;?>
 														<!-- bloque de red -->
-														<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-															<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-															<span class="Red-bloqueImagen">
-																<i class="fa fa-user"></i>
-															</span>
-															<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-															<span class="Red-bloqueStatus">Activo</span>
-															<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-														</li>		
-														<!-- Nivel 4 -->
-														<?php if (!empty($hijoNivel3[$redPlan])) : ?>
-															<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
-																<ul class="nivel nivel-4"> 
-																	<?php $hijo = $hijoNivel4; $nivel = 4;?>
-																	<!-- bloque de red -->
-																	<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																		<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																		<span class="Red-bloqueImagen">
-																			<i class="fa fa-user"></i>
-																		</span>
-																		<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																		<span class="Red-bloqueStatus">Activo</span>
-																		<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																	</li>		
-																	<!-- Nivel 5 -->
-																	<?php if (!empty($hijoNivel4[$redPlan])) : ?>
-																		<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
-																			<ul class="nivel nivel-5"> 
-																				<?php $hijo = $hijoNivel5; $nivel = 5;?>
-																				<!-- bloque de red -->
-																				<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																					<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																					<span class="Red-bloqueImagen">
-																						<i class="fa fa-user"></i>
-																					</span>
-																					<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																					<span class="Red-bloqueStatus">Activo</span>
-																					<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																				</li>	
-																				<!-- Nivel 6 -->
-																				<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																					<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																						<ul class="nivel nivel-6"> 
-																							<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																							<!-- bloque de red -->
-																							<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																								<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																								<span class="Red-bloqueImagen">
-																									<i class="fa fa-user"></i>
-																								</span>
-																								<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																								<span class="Red-bloqueStatus">Activo</span>
-																								<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																							</li>	
-																							<!-- Nivel 7 -->
-																							<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																								<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																									<ul class="nivel nivel-7"> 
-																										<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																										<!-- bloque de red -->
-																										<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																											<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																											<span class="Red-bloqueImagen">
-																												<i class="fa fa-user"></i>
-																											</span>
-																											<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																											<span class="Red-bloqueStatus">Activo</span>
-																											<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																										</li>																																	
-																									</ul>											 
-																								<?php 	} ?>
-																							<?php endif; ?>			
-																						</ul>											 
-																					<?php 	} ?>
-																				<?php endif; ?>		
-																			</ul>											 
-																		<?php 	} ?>
-																	<?php endif; ?>		
-																</ul>											 
-															<?php 	} ?>
-														<?php endif; ?>
+														<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>														
 													</ul>											 
 												<?php 	} ?>
 											<?php endif; ?>
@@ -211,117 +158,21 @@ get_header(); ?>
 								<ul class="nivel nivel-1">
 									<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 									<!-- bloque de red -->
-									<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-										<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-										<span class="Red-bloqueImagen">
-											<i class="fa fa-user"></i>
-										</span>
-										<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-										<span class="Red-bloqueStatus">Activo</span>
-										<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-									</li>
+									<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 									<!-- nivel 2 -->	
 									<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 										<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 											<ul class="nivel nivel-2">
 												<?php $hijo = $hijoNivel2; $nivel = 2;?>
 												<!-- bloque de red -->
-												<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-													<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-													<span class="Red-bloqueImagen">
-														<i class="fa fa-user"></i>
-													</span>
-													<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-													<span class="Red-bloqueStatus">Activo</span>
-													<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-												</li>		
+												<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 												<!-- Nivel 3 -->
 												<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 													<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 														<ul class="nivel nivel-3"> 
 															<?php $hijo = $hijoNivel3; $nivel = 3;?>
 															<!-- bloque de red -->
-															<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																<span class="Red-bloqueImagen">
-																	<i class="fa fa-user"></i>
-																</span>
-																<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																<span class="Red-bloqueStatus">Activo</span>
-																<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-															</li>		
-															<!-- Nivel 4 -->
-															<?php if (!empty($hijoNivel3[$redPlan])) : ?>
-																<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
-																	<ul class="nivel nivel-4"> 
-																		<?php $hijo = $hijoNivel4; $nivel = 4;?>
-																		<!-- bloque de red -->
-																		<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																			<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																			<span class="Red-bloqueImagen">
-																				<i class="fa fa-user"></i>
-																			</span>
-																			<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																			<span class="Red-bloqueStatus">Activo</span>
-																			<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																		</li>		
-																		<!-- Nivel 5 -->
-																		<?php if (!empty($hijoNivel4[$redPlan])) : ?>
-																			<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
-																				<ul class="nivel nivel-5"> 
-																					<?php $hijo = $hijoNivel5; $nivel = 5;?>
-																					<!-- bloque de red -->
-																					<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																						<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																						<span class="Red-bloqueImagen">
-																							<i class="fa fa-user"></i>
-																						</span>
-																						<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																						<span class="Red-bloqueStatus">Activo</span>
-																						<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																					</li>	
-																					<!-- Nivel 6 -->
-																					<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																						<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																							<ul class="nivel nivel-6"> 
-																								<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																								<!-- bloque de red -->
-																								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																									<span class="Red-bloqueImagen">
-																										<i class="fa fa-user"></i>
-																									</span>
-																									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																									<span class="Red-bloqueStatus">Activo</span>
-																									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																								</li>	
-																								<!-- Nivel 7 -->
-																								<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																									<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																										<ul class="nivel nivel-7"> 
-																											<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																											<!-- bloque de red -->
-																											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																												<span class="Red-bloqueImagen">
-																													<i class="fa fa-user"></i>
-																												</span>
-																												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																												<span class="Red-bloqueStatus">Activo</span>
-																												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																											</li>																																	
-																										</ul>											 
-																									<?php 	} ?>
-																								<?php endif; ?>			
-																							</ul>											 
-																						<?php 	} ?>
-																					<?php endif; ?>		
-																				</ul>											 
-																			<?php 	} ?>
-																		<?php endif; ?>		
-																	</ul>											 
-																<?php 	} ?>
-															<?php endif; ?>
+															<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>																
 														</ul>											 
 													<?php 	} ?>
 												<?php endif; ?>
@@ -362,114 +213,28 @@ get_header(); ?>
 								<ul class="nivel nivel-1">
 									<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 									<!-- bloque de red -->
-									<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-										<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-										<span class="Red-bloqueImagen">
-											<i class="fa fa-user"></i>
-										</span>
-										<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-										<span class="Red-bloqueStatus">Activo</span>
-										<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-									</li>
+									<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 									<!-- nivel 2 -->	
 									<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 										<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 											<ul class="nivel nivel-2">
 												<?php $hijo = $hijoNivel2; $nivel = 2;?>
 												<!-- bloque de red -->
-												<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-													<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-													<span class="Red-bloqueImagen">
-														<i class="fa fa-user"></i>
-													</span>
-													<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-													<span class="Red-bloqueStatus">Activo</span>
-													<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-												</li>		
+												<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 												<!-- Nivel 3 -->
 												<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 													<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 														<ul class="nivel nivel-3"> 
 															<?php $hijo = $hijoNivel3; $nivel = 3;?>
 															<!-- bloque de red -->
-															<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																<span class="Red-bloqueImagen">
-																	<i class="fa fa-user"></i>
-																</span>
-																<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																<span class="Red-bloqueStatus">Activo</span>
-																<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-															</li>		
+															<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 															<!-- Nivel 4 -->
 															<?php if (!empty($hijoNivel3[$redPlan])) : ?>
 																<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
 																	<ul class="nivel nivel-4"> 
 																		<?php $hijo = $hijoNivel4; $nivel = 4;?>
 																		<!-- bloque de red -->
-																		<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																			<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																			<span class="Red-bloqueImagen">
-																				<i class="fa fa-user"></i>
-																			</span>
-																			<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																			<span class="Red-bloqueStatus">Activo</span>
-																			<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																		</li>		
-																		<!-- Nivel 5 -->
-																		<?php if (!empty($hijoNivel4[$redPlan])) : ?>
-																			<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
-																				<ul class="nivel nivel-5"> 
-																					<?php $hijo = $hijoNivel5; $nivel = 5;?>
-																					<!-- bloque de red -->
-																					<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																						<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																						<span class="Red-bloqueImagen">
-																							<i class="fa fa-user"></i>
-																						</span>
-																						<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																						<span class="Red-bloqueStatus">Activo</span>
-																						<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																					</li>	
-																					<!-- Nivel 6 -->
-																					<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																						<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																							<ul class="nivel nivel-6"> 
-																								<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																								<!-- bloque de red -->
-																								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																									<span class="Red-bloqueImagen">
-																										<i class="fa fa-user"></i>
-																									</span>
-																									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																									<span class="Red-bloqueStatus">Activo</span>
-																									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																								</li>	
-																								<!-- Nivel 7 -->
-																								<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																									<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																										<ul class="nivel nivel-7"> 
-																											<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																											<!-- bloque de red -->
-																											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																												<span class="Red-bloqueImagen">
-																													<i class="fa fa-user"></i>
-																												</span>
-																												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																												<span class="Red-bloqueStatus">Activo</span>
-																												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																											</li>																																	
-																										</ul>											 
-																									<?php 	} ?>
-																								<?php endif; ?>			
-																							</ul>											 
-																						<?php 	} ?>
-																					<?php endif; ?>		
-																				</ul>											 
-																			<?php 	} ?>
-																		<?php endif; ?>		
+																		<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 																	</ul>											 
 																<?php 	} ?>
 															<?php endif; ?>
@@ -514,114 +279,28 @@ get_header(); ?>
 								<ul class="nivel nivel-1">
 									<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 									<!-- bloque de red -->
-									<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-										<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-										<span class="Red-bloqueImagen">
-											<i class="fa fa-user"></i>
-										</span>
-										<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-										<span class="Red-bloqueStatus">Activo</span>
-										<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-									</li>
+									<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 									<!-- nivel 2 -->	
 									<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 										<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 											<ul class="nivel nivel-2">
 												<?php $hijo = $hijoNivel2; $nivel = 2;?>
 												<!-- bloque de red -->
-												<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-													<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-													<span class="Red-bloqueImagen">
-														<i class="fa fa-user"></i>
-													</span>
-													<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-													<span class="Red-bloqueStatus">Activo</span>
-													<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-												</li>		
+												<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 												<!-- Nivel 3 -->
 												<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 													<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 														<ul class="nivel nivel-3"> 
 															<?php $hijo = $hijoNivel3; $nivel = 3;?>
 															<!-- bloque de red -->
-															<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																<span class="Red-bloqueImagen">
-																	<i class="fa fa-user"></i>
-																</span>
-																<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																<span class="Red-bloqueStatus">Activo</span>
-																<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-															</li>		
+															<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 															<!-- Nivel 4 -->
 															<?php if (!empty($hijoNivel3[$redPlan])) : ?>
 																<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
 																	<ul class="nivel nivel-4"> 
 																		<?php $hijo = $hijoNivel4; $nivel = 4;?>
 																		<!-- bloque de red -->
-																		<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																			<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																			<span class="Red-bloqueImagen">
-																				<i class="fa fa-user"></i>
-																			</span>
-																			<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																			<span class="Red-bloqueStatus">Activo</span>
-																			<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																		</li>		
-																		<!-- Nivel 5 -->
-																		<?php if (!empty($hijoNivel4[$redPlan])) : ?>
-																			<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
-																				<ul class="nivel nivel-5"> 
-																					<?php $hijo = $hijoNivel5; $nivel = 5;?>
-																					<!-- bloque de red -->
-																					<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																						<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																						<span class="Red-bloqueImagen">
-																							<i class="fa fa-user"></i>
-																						</span>
-																						<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																						<span class="Red-bloqueStatus">Activo</span>
-																						<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																					</li>	
-																					<!-- Nivel 6 -->
-																					<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																						<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																							<ul class="nivel nivel-6"> 
-																								<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																								<!-- bloque de red -->
-																								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																									<span class="Red-bloqueImagen">
-																										<i class="fa fa-user"></i>
-																									</span>
-																									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																									<span class="Red-bloqueStatus">Activo</span>
-																									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																								</li>	
-																								<!-- Nivel 7 -->
-																								<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																									<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																										<ul class="nivel nivel-7"> 
-																											<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																											<!-- bloque de red -->
-																											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																												<span class="Red-bloqueImagen">
-																													<i class="fa fa-user"></i>
-																												</span>
-																												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																												<span class="Red-bloqueStatus">Activo</span>
-																												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																											</li>																																	
-																										</ul>											 
-																									<?php 	} ?>
-																								<?php endif; ?>			
-																							</ul>											 
-																						<?php 	} ?>
-																					<?php endif; ?>		
-																				</ul>											 
-																			<?php 	} ?>
-																		<?php endif; ?>		
+																		<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>																		
 																	</ul>											 
 																<?php 	} ?>
 															<?php endif; ?>
@@ -665,114 +344,28 @@ get_header(); ?>
 								<ul class="nivel nivel-1">
 									<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 									<!-- bloque de red -->
-									<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-										<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-										<span class="Red-bloqueImagen">
-											<i class="fa fa-user"></i>
-										</span>
-										<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-										<span class="Red-bloqueStatus">Activo</span>
-										<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-									</li>
+									<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 									<!-- nivel 2 -->	
 									<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 										<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 											<ul class="nivel nivel-2">
 												<?php $hijo = $hijoNivel2; $nivel = 2;?>
 												<!-- bloque de red -->
-												<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-													<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-													<span class="Red-bloqueImagen">
-														<i class="fa fa-user"></i>
-													</span>
-													<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-													<span class="Red-bloqueStatus">Activo</span>
-													<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-												</li>		
+												<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 												<!-- Nivel 3 -->
 												<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 													<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 														<ul class="nivel nivel-3"> 
 															<?php $hijo = $hijoNivel3; $nivel = 3;?>
 															<!-- bloque de red -->
-															<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																<span class="Red-bloqueImagen">
-																	<i class="fa fa-user"></i>
-																</span>
-																<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																<span class="Red-bloqueStatus">Activo</span>
-																<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-															</li>		
+															<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 															<!-- Nivel 4 -->
 															<?php if (!empty($hijoNivel3[$redPlan])) : ?>
 																<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
 																	<ul class="nivel nivel-4"> 
 																		<?php $hijo = $hijoNivel4; $nivel = 4;?>
 																		<!-- bloque de red -->
-																		<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																			<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																			<span class="Red-bloqueImagen">
-																				<i class="fa fa-user"></i>
-																			</span>
-																			<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																			<span class="Red-bloqueStatus">Activo</span>
-																			<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																		</li>		
-																		<!-- Nivel 5 -->
-																		<?php if (!empty($hijoNivel4[$redPlan])) : ?>
-																			<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
-																				<ul class="nivel nivel-5"> 
-																					<?php $hijo = $hijoNivel5; $nivel = 5;?>
-																					<!-- bloque de red -->
-																					<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																						<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																						<span class="Red-bloqueImagen">
-																							<i class="fa fa-user"></i>
-																						</span>
-																						<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																						<span class="Red-bloqueStatus">Activo</span>
-																						<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																					</li>	
-																					<!-- Nivel 6 -->
-																					<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																						<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																							<ul class="nivel nivel-6"> 
-																								<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																								<!-- bloque de red -->
-																								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																									<span class="Red-bloqueImagen">
-																										<i class="fa fa-user"></i>
-																									</span>
-																									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																									<span class="Red-bloqueStatus">Activo</span>
-																									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																								</li>	
-																								<!-- Nivel 7 -->
-																								<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																									<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																										<ul class="nivel nivel-7"> 
-																											<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																											<!-- bloque de red -->
-																											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																												<span class="Red-bloqueImagen">
-																													<i class="fa fa-user"></i>
-																												</span>
-																												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																												<span class="Red-bloqueStatus">Activo</span>
-																												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																											</li>																																	
-																										</ul>											 
-																									<?php 	} ?>
-																								<?php endif; ?>			
-																							</ul>											 
-																						<?php 	} ?>
-																					<?php endif; ?>		
-																				</ul>											 
-																			<?php 	} ?>
-																		<?php endif; ?>		
+																		<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 																	</ul>											 
 																<?php 	} ?>
 															<?php endif; ?>
@@ -817,111 +410,35 @@ get_header(); ?>
 								<ul class="nivel nivel-1">
 									<?php $hijo = $hijoNivel1; $nivel = 1; ?>
 									<!-- bloque de red -->
-									<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-										<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-										<span class="Red-bloqueImagen">
-											<i class="fa fa-user"></i>
-										</span>
-										<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-										<span class="Red-bloqueStatus">Activo</span>
-										<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-									</li>
+									<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>
 									<!-- nivel 2 -->	
 									<?php if (!empty($hijoNivel1[$redPlan])) : ?>
 										<?php foreach ($hijoNivel1[$redPlan] as $hijoNivel2 ) { ?>
 											<ul class="nivel nivel-2">
 												<?php $hijo = $hijoNivel2; $nivel = 2;?>
 												<!-- bloque de red -->
-												<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-													<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-													<span class="Red-bloqueImagen">
-														<i class="fa fa-user"></i>
-													</span>
-													<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-													<span class="Red-bloqueStatus">Activo</span>
-													<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-												</li>		
+												<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 												<!-- Nivel 3 -->
 												<?php if (!empty($hijoNivel2[$redPlan])) : ?>
 													<?php foreach ($hijoNivel2[$redPlan] as $hijoNivel3 ) { ?>
 														<ul class="nivel nivel-3"> 
 															<?php $hijo = $hijoNivel3; $nivel = 3;?>
 															<!-- bloque de red -->
-															<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																<span class="Red-bloqueImagen">
-																	<i class="fa fa-user"></i>
-																</span>
-																<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																<span class="Red-bloqueStatus">Activo</span>
-																<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-															</li>		
+															<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 															<!-- Nivel 4 -->
 															<?php if (!empty($hijoNivel3[$redPlan])) : ?>
 																<?php foreach ($hijoNivel3[$redPlan] as $hijoNivel4 ) { ?>
 																	<ul class="nivel nivel-4"> 
 																		<?php $hijo = $hijoNivel4; $nivel = 4;?>
 																		<!-- bloque de red -->
-																		<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																			<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																			<span class="Red-bloqueImagen">
-																				<i class="fa fa-user"></i>
-																			</span>
-																			<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																			<span class="Red-bloqueStatus">Activo</span>
-																			<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																		</li>		
+																		<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>		
 																		<!-- Nivel 5 -->
 																		<?php if (!empty($hijoNivel4[$redPlan])) : ?>
 																			<?php foreach ($hijoNivel4[$redPlan] as $hijoNivel5 ) { ?>
 																				<ul class="nivel nivel-5"> 
 																					<?php $hijo = $hijoNivel5; $nivel = 5;?>
 																					<!-- bloque de red -->
-																					<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																						<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																						<span class="Red-bloqueImagen">
-																							<i class="fa fa-user"></i>
-																						</span>
-																						<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																						<span class="Red-bloqueStatus">Activo</span>
-																						<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																					</li>	
-																					<!-- Nivel 6 -->
-																					<?php if (!empty($hijoNivel5[$redPlan])) : ?>
-																						<?php foreach ($hijoNivel5[$redPlan] as $hijoNivel6 ) { ?>
-																							<ul class="nivel nivel-6"> 
-																								<?php $hijo = $hijoNivel6; $nivel = 6;?>
-																								<!-- bloque de red -->
-																								<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																									<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																									<span class="Red-bloqueImagen">
-																										<i class="fa fa-user"></i>
-																									</span>
-																									<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																									<span class="Red-bloqueStatus">Activo</span>
-																									<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																								</li>	
-																								<!-- Nivel 7 -->
-																								<?php if (!empty($hijoNivel6[$redPlan])) : ?>
-																									<?php foreach ($hijoNivel6[$redPlan] as $hijoNivel7 ) { ?>
-																										<ul class="nivel nivel-7"> 
-																											<?php $hijo = $hijoNivel7; $nivel = 7;?>
-																											<!-- bloque de red -->
-																											<li id="<?= $hijo['ID']; ?>" class="Red-bloque">
-																												<a class="Red-bloqueIcon is-plus"><i class="fa fa-minus i"></i></a>
-																												<span class="Red-bloqueImagen">
-																													<i class="fa fa-user"></i>
-																												</span>
-																												<span class="Red-bloqueNombre"><?= $hijo['nombre']; ?></span>
-																												<span class="Red-bloqueStatus">Activo</span>
-																												<span class="Red-bloqueNivel">Nivel <?= $nivel; ?></span>
-																											</li>																																	
-																										</ul>											 
-																									<?php 	} ?>
-																								<?php endif; ?>			
-																							</ul>											 
-																						<?php 	} ?>
-																					<?php endif; ?>		
+																					<?php bloqueRed( $hijo['ID'], $hijo['numero'], $hijo['nombre'], $nivel ); ?>	
 																				</ul>											 
 																			<?php 	} ?>
 																		<?php endif; ?>		
@@ -946,10 +463,7 @@ get_header(); ?>
 			
 		</div>
 
-
-
     <?php endwhile; // end of the loop. ?>
-
 
 </section>
 
