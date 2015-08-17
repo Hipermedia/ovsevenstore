@@ -41,11 +41,12 @@
 		}
 
 		.Red-planActivacion,
-		.Red-planComisiones {
+		.Red-planComisiones,
+		.Red-mantenimientoActivacion {
 			display: inline-block;
 			width: 49%;
 			padding: 0;
-			margin: 0 0 3rem;
+			margin: 0 0 2rem;
 			font-size: 1.25rem;
 			font-weight: 300;
 			color: #ccc;
@@ -62,7 +63,8 @@
 			}
 
 		}
-	
+		.Red-mantenimientoActivacion {
+		}
 
 		.Red-tabBodyPanel {
 
@@ -136,5 +138,19 @@
 	.Red-bloqueNivel {
 		float: right;
 		padding: 0 .5rem 0 1rem;
+	}
+}
+.Red-mensajeContratar {
+	font-size: 1.5rem;
+	background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
+	border-radius: 0px 0.5rem 0.5rem 0px;
+	padding: 0.5rem 1.5rem;
+	margin: 0px 0px 1.5rem;
+	border-left: 3px solid #5BFF4C;
+	font-weight: 300;
+	font-family: "Open Sans",sans-serif;
+
+	span {
+		color: #FFF209;
 	}
 }

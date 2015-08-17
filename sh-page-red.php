@@ -131,7 +131,7 @@ get_header(); ?>
 					</div>	
 				<?php endif; ?>
 			<?php else : ?>
-				<p>Contrata éste plan</p>
+				<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$290</span></strong></h3>
 			<?php endif; ?>
 			</div>
 				
@@ -187,7 +187,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<p>Contrata éste plan</p>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$580</span></strong></h3>
 				<?php endif; ?>
 			</div>
 
@@ -206,6 +206,10 @@ get_header(); ?>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
 						<i class="fa fa-money"></i> Comisiones: <span>$<?php the_field('gananciaPlusApi', $userACF); ?></span>
+					</div>
+					<!-- Fecha de mantenimiento -->
+					<div class="Red-mantenimientoActivacion">
+						<i class="fa fa-calendar"></i> Fecha de mantenimiento: <span><?php the_field('fechaPagoMantenimientoApi', $userACF); ?></span>
 					</div>
 
 					<?php $redPlan = 'hijos_plus'; ?>
@@ -254,7 +258,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<p>Contrata éste plan</p>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$1160</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
@@ -322,7 +326,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<p>Contrata éste plan</p>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$2900</span></strong></h3>
 				<?php endif; ?>
 			</div>
 
@@ -389,7 +393,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<p>Contrata éste plan</p>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$5800</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
@@ -467,7 +471,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<p>Contrata éste plan</p>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$150800</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
