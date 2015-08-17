@@ -75,8 +75,8 @@ get_header(); ?>
 	    				<?php } ?>	
 					</div>	
 				<?php endif; ?>
-
 			</div>
+
 
 			<!-- BASICO
 			******************************************* -->
@@ -84,9 +84,11 @@ get_header(); ?>
 				
 			<?php if  ($red['basico']) : ?>
 
+				<!-- Indicador de plan -->
+				<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 				<!-- Fecha de activación -->
 				<div class="Red-planActivacion">
-					<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+					<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoBasicoApi', $userACF); ?></span>
 				</div>
 				<!-- Comisiones del plan -->
 				<div class="Red-planComisiones">
@@ -138,10 +140,11 @@ get_header(); ?>
 			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="premier">
 				
 				<?php if  ($red['premier']) : ?>
-
+					<!-- Indicador de plan -->
+					<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 					<!-- Fecha de activación -->
 					<div class="Red-planActivacion">
-						<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+						<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoPremierApi', $userACF); ?></span>
 					</div>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
@@ -193,10 +196,12 @@ get_header(); ?>
 			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="plus">
 
 				<?php if  ($red['plus']) : ?>
-
+					
+					<!-- Indicador de plan -->
+					<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 					<!-- Fecha de activación -->
 					<div class="Red-planActivacion">
-						<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+						<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoPlusApi', $userACF); ?></span>
 					</div>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
@@ -259,10 +264,12 @@ get_header(); ?>
 			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="ultra">
 
 				<?php if  ($red['ultra']) : ?>
-
+					
+					<!-- Indicador de plan -->
+					<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 					<!-- Fecha de activación -->
 					<div class="Red-planActivacion">
-						<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+						<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoUltraApi', $userACF); ?></span>
 					</div>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
@@ -324,10 +331,12 @@ get_header(); ?>
 			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="supremo">
 
 				<?php if  ($red['supremo']) : ?>
-
+					
+					<!-- Indicador de plan -->
+					<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 					<!-- Fecha de activación -->
 					<div class="Red-planActivacion">
-						<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+						<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoSupremoApi', $userACF); ?></span>
 					</div>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
@@ -390,10 +399,12 @@ get_header(); ?>
 			<div role="tabpanel" class="tab-pane Red-tabBodyPanel" id="master">
 				
 				<?php if  ($red['master']) : ?>
-
+					
+					<!-- Indicador de plan -->
+					<h3 class="Red-planIndicador"><i class="fa fa-smile-o"></i> Tienes activo éste plan</h3>
 					<!-- Fecha de activación -->
 					<div class="Red-planActivacion">
-						<i class="fa fa-calendar"></i> Fecha de tu activación: <span>...</span>
+						<i class="fa fa-calendar"></i> Fecha de tu activación: <span><?php the_field('fechaPagoMasterApi', $userACF); ?></span>
 					</div>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">

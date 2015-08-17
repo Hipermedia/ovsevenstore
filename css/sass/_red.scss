@@ -22,8 +22,24 @@
 		}
 	}
 	.Red-tabBody {
-		padding: 3rem 1.5rem;
+		padding: 1.5rem 1.5rem 3rem;
 		
+		.Red-planIndicador {
+			font-size: 1.5rem;
+			background: rgba(0, 0, 0, 0.65) none repeat scroll 0% 0%;
+			border-radius: 0px 0.5rem 0.5rem 0px;
+			padding: 0.5rem 1.5rem;
+			margin: 0px 0px 1.5rem;
+			border-left: 3px solid #5BFF4C;
+			font-weight: 300;
+			font-family: "Open Sans",sans-serif;
+
+			 i {
+				color: #59CC45;
+				margin-right: .5rem;
+			 }
+		}
+
 		.Red-planActivacion,
 		.Red-planComisiones {
 			display: inline-block;
