@@ -16,13 +16,14 @@
             </a>
         </li>
         <li>
+            <a href="<?php echo esc_url( home_url( '/capacitacion/' ) ); ?>">
+                <i class="fa fa-book"></i><label>Capacitación</label>
+            </a>
+        </li>
+        <li>
             <a href="<?php echo wp_logout_url( home_url() ); ?>">
                 <i class="fa fa-sign-out"></i><label>Salir</label>
             </a>
         </li>
-<!--         <li><a href="<?php echo esc_url( home_url( '/capacitacion/' ) ); ?>">
-            <i class="fa fa-book"></i>
-            <label>Capacitación</label>
-        </a></li> -->
     </ul>
 </nav>
