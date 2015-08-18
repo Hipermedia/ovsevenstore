@@ -29,7 +29,9 @@ function bloqueRed($id, $usuario, $nombre, $nivel) {
 		<i class="fa fa-user"></i>
 	</span>
 	<span class="Red-bloqueNombre"><?php echo $nombre; ?></span>
-	<span class="Red-bloqueUsuario"><?php echo $usuario; ?></span>
+	<?php if ($nivel == 1) : ?>
+		<span class="Red-bloqueUsuario"><?php echo $usuario; ?></span>
+	<?php endif; ?>
 	<span class="Red-bloqueNivel">Nivel <?php echo $nivel; ?></span>
 </li>
 <?php

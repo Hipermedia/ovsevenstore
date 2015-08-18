@@ -258,7 +258,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$1160</span></strong></h3>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$1,160</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
@@ -278,6 +278,10 @@ get_header(); ?>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
 						<i class="fa fa-money"></i> Comisiones: <span>$<?php the_field('gananciaUltraApi', $userACF); ?></span>
+					</div>
+					<!-- Fecha de mantenimiento -->
+					<div class="Red-mantenimientoActivacion">
+						<i class="fa fa-calendar"></i> Fecha de mantenimiento: <span><?php the_field('fechaPagoMantenimientoApi', $userACF); ?></span>
 					</div>
 
 					<?php $redPlan = 'hijos_ultra'; ?>
@@ -326,7 +330,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$2900</span></strong></h3>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$2,900</span></strong></h3>
 				<?php endif; ?>
 			</div>
 
@@ -345,6 +349,10 @@ get_header(); ?>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
 						<i class="fa fa-money"></i> Comisiones: <span>$<?php the_field('gananciaSupremoApi', $userACF); ?></span>
+					</div>
+					<!-- Fecha de mantenimiento -->
+					<div class="Red-mantenimientoActivacion">
+						<i class="fa fa-calendar"></i> Fecha de mantenimiento: <span><?php the_field('fechaPagoMantenimientoApi', $userACF); ?></span>
 					</div>
 
 					<?php $redPlan = 'hijos_supremo'; ?>
@@ -393,7 +401,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$5800</span></strong></h3>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$5,800</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
@@ -413,6 +421,10 @@ get_header(); ?>
 					<!-- Comisiones del plan -->
 					<div class="Red-planComisiones">
 						<i class="fa fa-money"></i> Comisiones: <span>$<?php the_field('gananciaMasterApi', $userACF); ?></span>
+					</div>
+					<!-- Fecha de mantenimiento -->
+					<div class="Red-mantenimientoActivacion">
+						<i class="fa fa-calendar"></i> Fecha de mantenimiento: <span><?php the_field('fechaPagoMantenimientoApi', $userACF); ?></span>
 					</div>
 
 					<?php $redPlan = 'hijos_master'; ?>
@@ -471,7 +483,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php else : ?>
-					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$150800</span></strong></h3>
+					<h3 class="Red-mensajeContratar">Actualmente no tiene comprando este plan. Para recibir ganancias de este plan te invitamos a activarlo. <strong>Costo: <span>$15,800</span></strong></h3>
 				<?php endif; ?>
 
 			</div>
