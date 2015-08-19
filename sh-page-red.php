@@ -16,6 +16,7 @@ get_header(); ?>
 		$red = redApi(); 
 		$user_ID = get_current_user_id();
 		$userACF = 'user_' . $user_ID;
+		//var_dump($red);
 	?>
 
     <?php while ( have_posts() ) : the_post(); ?>
