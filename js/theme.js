@@ -49,4 +49,7 @@ jQuery(document).ready(function($) {
 		redHijos.toggle();
 		console.log(redHijos);
 	});
+
+	// desaparece upline en formulario completar registro
+	$("#acf-uplineApi").remove();
 });

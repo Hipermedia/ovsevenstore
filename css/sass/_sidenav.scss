@@ -8,6 +8,12 @@
 	height: 99.8vh;
 	display: block;
 	position: fixed;
+	@media (max-width: $tablet-width) {
+		height: auto;
+		width: 100%;
+		position: relative;
+		text-align: center;
+	}
 
 	ul {
 		@include ul-base;
@@ -15,6 +21,10 @@
 		li {
 			padding: .5rem 0;
 			border-bottom: 1px #222 solid;
+			@media (max-width: $tablet-width) {
+				display: inline-block;
+				margin: 0 .6rem;
+			}
 			
 			a {
 				font-size: 2.25rem;
@@ -38,6 +48,9 @@
 						display: block;
 						left: 55px;
 						top: 0;
+						@media (max-width: $tablet-width) {
+							display: none;
+						}
 					}
 				}
 

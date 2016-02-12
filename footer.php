@@ -6,7 +6,6 @@
 </main>
 
 <footer class="footer" role="footer">	
-         
     <div class="creditos" class="group">
 		<a class="firma-sh" href="http://www.sevenstore.mx/">Derechos reservados | 2015</a>
 	</div><!-- #creditos -->  

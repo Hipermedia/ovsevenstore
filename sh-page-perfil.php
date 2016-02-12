@@ -23,27 +23,31 @@ $api = datosApi();
 
 		<section class="datos-api">
 			<h2 class="subtitulo col-md-12">Datos personales</h2>	
-			<div class="bloque-info row">   
-                <p class="col-md-12"><strong>Nombre:</strong> <?php echo $api[nombre] . ' ' . $api[apellido]; ?></p>
-				<p class="col-md-4"><strong>Usuario:</strong> <?php echo $api[usuario]; ?></p>
-                <p class="col-md-4"><strong>Correo Electrónico:</strong> <?php echo $api[email]; ?></p>
-                <p class="col-md-4"><strong>Whatsapp:</strong> <?php echo $api[whatsapp]; ?></p>
-                <p class="col-md-4"><strong>Calle y número:</strong> <?php echo $api[calle]; ?></p>
-                <p class="col-md-4"><strong>Colonia:</strong> <?php echo $api[colonia]; ?></p>
-                <p class="col-md-4"><strong>Ciudad:</strong> <?php echo $api[ciudad]; ?></p>
-                <p class="col-md-4"><strong>Código postal:</strong> <?php echo $api[cp]; ?></p>
-                <p class="col-md-4"><strong>Estado:</strong> <?php echo $api[estado]; ?></p>
-                <p class="col-md-4"><strong>País:</strong> <?php echo $api[pais]; ?></p>
+			<div class="bloque-info row">
+                <p class="col-md-6"><strong>Número de teléfono del referido:</strong> <?php echo $api[upline]; ?></p>   
+                <p class="col-md-6"><strong>Nombre:</strong> <?php echo $api[nombre] . ' ' . $api[apellido]; ?></p>
+				<p class="col-md-6"><strong>Usuario:</strong> <?php echo $api[usuario]; ?></p>
+                <p class="col-md-6"><strong>Correo Electrónico:</strong> <?php echo $api[email]; ?></p>
+                <p class="col-md-6"><strong>Whatsapp:</strong> <?php echo $api[whatsapp]; ?></p>
+                <p class="col-md-6"><strong>Calle y número:</strong> <?php echo $api[calle]; ?></p>
+                <p class="col-md-6"><strong>Colonia:</strong> <?php echo $api[colonia]; ?></p>
+                <p class="col-md-6"><strong>Ciudad:</strong> <?php echo $api[ciudad]; ?></p>
+                <p class="col-md-6"><strong>Código postal:</strong> <?php echo $api[cp]; ?></p>
+                <p class="col-md-6"><strong>Estado:</strong> <?php echo $api[estado]; ?></p>
+                <p class="col-md-6"><strong>País:</strong> <?php echo $api[pais]; ?></p>
 			</div>
 
             <h2 class="subtitulo col-md-12">Datos bancarios</h2>	
 			<div class="bloque-info row">
-                <p class="col-md-4"><strong>Banco:</strong> <?php echo $api[banco]; ?></p>
-                <p class="col-md-4"><strong>CLABE:</strong> <?php echo $api[clabe]; ?></p>
-                <p class="col-md-4"><strong>Paypal:</strong> <?php echo $api[paypal]; ?></p>
-                <p class="col-md-4"><strong>RFC:</strong> <?php echo $api[rfc]; ?></p>
-            </div>	
+                <p class="col-md-3"><strong>Banco:</strong> <?php echo $api[banco]; ?></p>
+                <p class="col-md-3"><strong>CLABE:</strong> <?php echo $api[clabe]; ?></p>
+                <p class="col-md-3"><strong>Paypal:</strong> <?php echo $api[paypal]; ?></p>
+                <p class="col-md-3"><strong>RFC:</strong> <?php echo $api[rfc]; ?></p>
 
+            </div>	
+            <p class="col-md-12">
+                <a class="btn btn-primary btn-round" href="<?php echo home_url().'/editar-perfil' ?>">Modificar Información</a>
+            </p>
 		</section>
 
 

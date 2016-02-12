@@ -667,6 +667,8 @@ function datosApi() {
 	$userData['email']			= $userInfo->user_email;
 	$userData['usuario']		= $userInfo->user_login;
 
+	$userData['contrasenia']	= $userInfo->user_pass;
+
 	$userData['registrado']		= $userMeta['registradoApi'][0];
 	$userData['upline']			= $userMeta['uplineApi'][0];
 	$userData['whatsapp']		= $userMeta['whatsappApi'][0];
@@ -712,6 +714,8 @@ function datosApi() {
 function print_array($array=array()) {
 	echo '<pre style="display:block;">'; print_r($array); echo '</pre>';
 }
+
+
 
 // no admin panel para suscriptores
 function restrict_access_admin_panel(){
